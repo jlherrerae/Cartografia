@@ -1,0 +1,215 @@
+!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+	
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<meta name="apple-mobile-web-app-capable" content="yes" />
+	
+	<!--imported fonts, not standard available on users systems-->
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto" type="text/css">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat+Subrayada:wght@400;700&display=swap">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
+	<!-------------------------styles for the framework-------------------------------->
+	<!--open layers-->
+
+    <!-- Bootstrap -->
+	<link rel="stylesheet" href="script/bootstrap/452/css/bootstrap.min.css">
+
+	<!-------------------------styles for application-------------------------------->
+	<link rel="stylesheet" href="style/reset.css" type="text/css"> <!--set all back to zero, overrule browsers defaults-->
+	<link rel="stylesheet" href="style/base.css" type="text/css"> <!--   -->
+
+    <title>Burundi Food Security</title>
+</head>
+<body onload='init()'>
+	<!--this navigation menu is a bootstrap menu-->
+<div class="navbar navbar-expand-md bg-grey navbar-dark fixed-top bg-top">
+  <a class="navbar-brand title-top" href="#"><img class="logo-img" src="img/burundi_logo.png">Food Security</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="collapsibleNavbar">
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link pointer" id="i_foodmarket">Food markets</a> <!--  -->
+      </li>
+      <li class="nav-item">
+        <a class="nav-link pointer"  id="i_route" onclick="clearForm()">Route finding</a> <!--  -->
+      </li>
+      <li class="nav-item">
+        <a class="nav-link pointer" id="i_service">Service area</a> <!--  -->
+      </li>  
+      <li class="nav-item">
+        <a class="nav-link pointer" id="i_search" onclick="clearForm()">Search</a> <!--   -->
+      </li>    
+    </ul>
+  </div>  
+</div>
+
+		
+	<!--   -->
+<div class="container">
+		
+		<div id="foodmarket" style="display:none;" class="bg-light">
+			<h1 class="ns">Food Markets
+				<button type="button" class="close bt-close" aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+				</button>
+
+			</h1>
+			<p class="ns">Do click with the left button of the mouse to obtain the source location to calculate the markets:</p>
+			<label>
+				<input id="chboxcurrentloc" type="checkbox"> 
+			</label>
+			<div id="settlementselect">
+				<h2 class="ns">Select a settlement</h2>
+				<input class="form-control form-control-sm" type="text" id="selsettlement" placeholder="Enter name">
+				<p class="ns">Enter the name of a settlement you need to locate.</p>
+			</div>
+			<div class="col-sm-offset-2 col-sm-12">
+				<button type="submit" class="btn btn-danger formfont" id="btnsearch">Send</button>
+			</div>	
+		</div>
+		
+		<div id="route" style="display:none;" class="bg-light">
+			<h1 class="ns">Route Finding
+				<button type="button" class="close bt-close" aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+				</button>
+			</h1>
+			<div class="form-group">
+				<!--<label class="control-label col-sm-2" for="startpoint">Start:</label>-->
+				<div class="col-sm-12">
+					<input type="text" class="form-control formfront" id="startpoint"
+					placeholder="Choose starting point, click on the map">
+				</div>
+				<div class="form-group">
+					<!--<label class="control-label col-sm-2" for="endpoint">End:</label>-->
+					<div class="col-sm-12">
+						<input type="text" class="form-control formfont" id="endpoint" 
+						placeholder="Choose destination, click on the map">
+					</div>
+				</div>
+				<div class="form-group">
+					<div class="col-sm-offset-2 col-sm-12">
+						<button type="submit" class="btn btn-danger formfont" id="btnroute">Send</button>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div id="service" style="display:none;" class="bg-light">
+			<h1 class="ns">Service Area
+				<button type="button" class="close bt-close" aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+				</button>
+			</h1>
+			<p class="ns">Do click with the left button of the mouse to obtain the source location to calculate the markets:</p>
+			<label>
+				<input id="chboxcurrentloc" type="checkbox"> 
+			</label>
+		</div>
+			<!--<h1 class="ns">Show service area of markets
+				<button type="button" class="close bt-close" aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+				</button>
+			</h1>
+			
+		</div> -->
+		
+		
+	<!--	<div id="search" style="display:none;" class="bg-light">
+			<h1 class="ns">Search 
+				<button type="button" class="close bt-close" aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+				</button>
+			</h1>
+
+		</div> -->
+		
+		<div class="row">
+			<div id="bigmap"></div>
+		</div>
+		
+		<div id="about" style="display:none;" class="bg-dark">
+			<h1 class="ns">About this application...
+				<button type="button" class="close bt-close" aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+				</button>
+			</h1>
+			<div id="about_app">This application is a final project of the Geo-web app building with open-source GIS tools </div>
+			<p class="ns">Faculty of Geo-Information Science and Earth Observation ITC of the University of Twente, Netherlands. (2021)
+            </p>
+		</div>
+		
+		<div id="contact" style="display:none;" class="bg-dark">
+			<h1 class="ns">Get in touch with us...
+				<button type="button" class="close bt-close" aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+				</button>
+			</h1>
+			<div id="contact_app">If you have any observations or comments about this application, please write to:</div>
+			<p class="ns">Jose Luis Herrera Escorcia</p>
+			<p class="ns">email:   j.l.herreraescorcia@student.utwente.nl</p>
+		</div>
+		
+		
+		<div id="footer" class="row bg-dark fixed-bottom">
+			<div class="text-center">
+				<a class="pointer ns" id="i-about" onclick="showHide('about')">About this application</a>
+				<a class="pointer ns" id="i-contact" onclick="showHide('contact')">Get in touch</a>	
+			</div>
+		</div>
+	</div>
+
+		
+
+ 	<!--Setup the search panel--> 
+    <div id="search" style="display:none;" class="bg-light">
+        <h1 class="ns">Search 
+            <button type="button" class="close bt-close" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </h1>
+        <p class="ns">Select the type of location:</p>
+    <form>
+        <ul id="InLine">
+            <li><input type="radio" id="site-select" name="type-select" value="market" checked="checked" onclick="radioShowHide('settlementselect')">
+            <label for="market">Markets</label></li>
+            <li><input type="radio" id="settlement-select" name="type-select" value="settlement" onclick="radioShowHide('marketselect')">
+            <label for="settlement">Settlement</label></li>
+        </ul>
+        <div id="marketselect">
+            <h2 class="ns">Select a Market</h2>
+            <input class="form-control form-control-sm" type="text" id="selmarket" placeholder="Enter name">
+            <p class="ns">Enter the name of a known market.
+            </p>
+        </div>
+        <div id="settlementselect">
+            <h2 class="ns">Select a settlement</h2>
+            <input class="form-control form-control-sm" type="text" id="selsettlement" placeholder="Enter name">
+            <p class="ns">Enter the name of a settlement you need to locate.</p>
+        </div>
+		<div class="form-group">
+			<div class="col-sm-offset-2 col-sm-12">
+				<button type="submit" class="btn btn-danger formfont" id="btnsearch">Send</button>
+			</div>
+		</div>
+    </form>
+
+
+    </div>
+  <!-- These scripts are loaded at last, to avoid loading interruptions,
+		jQuery first, Popper (accurate mouse positioning) after, then Bootstrap JS, own syles-->
+        <script src="script/jquery/jquery.min.js" ></script> <!-- in the .min version all spaces and breakes are taken out-->
+        <script src="script/bootstrap/452/js/bootstrap.min.js"></script> <!-- version 4.5.2 -->
+        <script src="script/bootstrap/support.js"></script> <!-- additional snippets -->
+        <script src="script/openlayers/v4.6.4/ol.js"></script><!-- openlayers framework -->
+        <script src="script/main.js"></script>	<!-- to load map etc -->
+        <script src="script/basics.js"></script>
+        <script src="snippets/search_basics.js"></script><!-- turn on/off the circles and the select text -->
+        <script src="snippets/search_function_main.js"></script>
+</body>
+</html>
