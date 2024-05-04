@@ -1,0 +1,4 @@
+body {font-family: "Roboto";font-size: 0.9rem;height:100%;}
+.row {text-align: center;}
+.column {text-align: center;}
+.form-control{height: calc(var(--variable-width)+3px);}

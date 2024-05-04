@@ -1,0 +1,165 @@
+/*-----------------------------------------------------------------------------------------
+Name: base.css
+Date: Januari 2021
+Description: Base styles for the Short Course Web-application
+Version: 1.0
+Design: Wim Feringa, Robert Ohuru, Department GIP, Faculty Geo-information Science and Earth Observation,
+        University of Twente, Enschede, The Netherlands https://www.itc.nl/
+Description: the base styling for the content for all devices and viewports
+----------------------------------------------------------------------------------------- */
+
+/*----------------------------------------------------------------------------------------
+Bootstrap is used as base, css is used from there.
+The exceptions are done here
+----------------------------------------------------------------------------------------*/
+
+/*--------
+version a
+--------*/
+
+/*-------------------
+  Global
+-------------------*/
+body {font-family:"Roboto"; font-size:15px; height:100vh;}
+
+/*remove the navigation bar of the mobile browser*/
+@media (max-width:768px){nav#main-nav{display:none;}}
+
+
+#footer a { color:white; margin-right:15px;}
+#footer a:hover {text-decoration:none; color:#c6c6c6;}
+
+.row {text-align: center;}
+.column {text-align: center;}
+
+#i_info {border: 0px; width:100%; font-family: Arial;}
+
+.bg-red {background-color: crimson;}
+.bg-green {background-color: chartreuse;}
+.bg-grey {background-color:#50a02b;}
+.bg-blue {background-color: blue;}
+.bg-yellow {background-color: lightyellow;}
+
+.text-red{color:crimson;}
+.text-orange{color: #f5d4d0;}
+.title-top{font-family: "Montserrat Subrayada", sans-serif; padding-top: -10px;}	
+.pointer {cursor: pointer;}
+.ns{user-select: none;}
+
+
+#foodmarket ul {list-style-type:none; padding: 0;}
+#foodmarket li a {color:#6f6f6f;text-decoration:none;}
+#foodmarket li a:hover {color:#6e2020;text-decoration:none;background-color: #f5d4d0;}
+
+#search {padding:3;}
+#search ul{list-style-type:none; padding:0px;}
+
+.nav-link{font-size: 1rem;}
+
+
+
+/*-------------------
+  two sizes
+-------------------*/
+
+/* Bootstrap 4 breakpoints
+larger devices (landscape phones, 600px and up) */
+@media screen and (min-width: 601px) {  
+  	h1 {font-size:3rem;} /*1rem = 16px*/
+	.title-top {font-size: 1.95rem; padding-left: 5px;} 
+	.logo-img {height:48px; width:36px;}
+	.smallFont{font-size: 0.8rem;}
+	
+	#bigmap {background-color: #c6c6c6; width:100%; position:absolute; top:4.5rem; left:0px;}
+	
+	#foodmarket {position:absolute;   z-index:1000;  right:10px; top:95px; width:500px; height:250px; overflow:auto; border-radius:5px; border:3px solid #6f6f6f; padding:3px;}
+	#foodmarket h1 {font-size:20px; font-weight:600; text-align:center; border-bottom: 1px solid #6f6f6f; padding:3px; color:#6f6f6f;}
+	#foodmarket h2, #search h2 {font-size: 16px; text-align:left; padding:1px; background-color:#6f6f6f; color:white;}
+	#foodmarket li a {font-size: 14px;}
+	
+	#search {position:absolute;  z-index:1000; right:10px; top:95px; height:320px;width:500px; overflow:auto; border-radius:5px; border:3px solid #6f6f6f;padding:7px;}
+	#search h1 {font-size:20px; font-weight:600; text-align:center; border-bottom: 1px solid #6f6f6f; padding:3px; color:#6f6f6f;}
+	ul#InLine li{display:inline;padding-left: 5px;}
+	
+	#route {position:absolute;  z-index:1000; right:10px; top:95px; height:250px;width:500px; overflow:auto; border-radius:5px; border:3px solid #6f6f6f; font-size: 12px;padding:5px;}
+	#route h1 {font-size:20px; font-weight:600; text-align:center; border-bottom: 1px solid #6f6f6f; padding:3px; color:#6f6f6f;}
+
+	#service {position:absolute; right:10px; top:95px; width:500px; height: 250px; border-radius:5px; border:3px solid #6f6f6f; z-index:3;}
+	#service h1 {font-size: 20px; font-weight: 600; text-align: center; padding:3px; color:#6f6f6f; border-bottom: 3px solid #6f6f6f;}
+	
+	#about {position:absolute;  z-index:1000; right:50%; bottom:30px; height:200px; width:40%; overflow:auto; border-radius:5px; border:3px solid #6f6f6f; color:#ffffff; background-color: #6f6f6f;}
+	#about h1 {font-size:20px; font-weight:600; text-align:center; border-bottom: 1px solid #6f6f6f; padding:3px; color:#ffffff;}
+	
+	#contact {position:absolute;  z-index:1000;  left:55%;  bottom:30px; height:200px; width:40%; overflow:auto; border-radius:5px; border:3px solid #6f6f6f;color:#ffffff; background-color: #6f6f6f;}
+	#contact h1 {font-size:20px; font-weight:600; text-align:center; border-bottom: 1px solid #ffffff; padding:3px;}
+	.formfont{font-size:12px;}
+
+
+	.bg-top{background-image:url("../img/bgb_top.png");background-repeat: no-repeat;}
+	
+	#i-about, #i-contact{font-size: 0.8em;}
+	#footer{height:30px; font-size: 22px;}
+}
+
+
+
+/* If the screen size is 600px wide or less, set the font-size of <div> to 30px */
+@media screen and (max-width: 600px) {
+  	h1 {font-size:2rem;} /*1rem = 16px*/
+	.title-top {font-size: 1.35rem;}
+	.pad-1{padding-bottom: 0.1px;}
+	.logo-img {height:47px; width:35px;}
+	.smallFont{font-size: 0.7rem;}
+	
+	
+	#bigmap {background-color:#939598;  min-height:90vh;position:absolute; top:4rem;left:0px;}
+
+	#service {position:absolute; top:95px; right: 10px; width:300px; height: 250px; border-radius:5px; border:3px solid #6f6f6f; z-index:3;}
+	#service h1 {font-size:15px; font-weight:600; text-align:center; border-bottom: 1px solid #6f6f6f; padding:3px; color:#6f6f6f;}
+	
+	#foodmarket {position:absolute; top:95px; right: 5px; width: 200px; height: 325px; overflow:auto; border-radius:5px; border:3px solid #6f6f6f;z-index:3;font-size: 9px; padding:3px;}
+	#foodmarket h1 {font-size:15px; font-weight:600; text-align:center; border-bottom: 1px solid #6f6f6f; padding:3px; color:#6f6f6f;}
+	#foodmarket h2, #search h2 {font-size: 13px; text-align:left; padding:1px; background-color:#6f6f6f; color:white;}
+	#foodmarket li a {font-size: 12px;}
+
+	#search {position:absolute; top:95px; right: 10px; width:200px; height: 350px; overflow:auto; border-radius:5px; border:3px solid #6f6f6f;z-index:3;font-size: 12px;padding:5px;}
+	#search h1 {font-size:15px; font-weight:600; text-align:center; border-bottom: 1px solid #6f6f6f; padding:3px; color:#6f6f6f;}
+	
+	ul#InLine li{padding-left: 5px;}
+
+	#route {position:absolute; top:95px; right: 10px; width:200px; height: 225px; overflow:auto; border-radius:5px; border:3px solid #6f6f6f;z-index:3;font-size: 12px;padding: 5px;}
+	#route h1 {font-size:15px; font-weight:600; text-align:center; border-bottom: 1px solid #6f6f6f; padding:3px; color:#6f6f6f;}
+	
+	#about {position:absolute;  z-index:1000; right:50%; bottom:30px; height:200px; width:45%; overflow:auto; border-radius:5px; border:3px solid #6f6f6f;font-size: 11px; color: #ffffff;}
+	#about h1 {font-size:15px; font-weight:600; text-align:center; border-bottom: 1px solid #6f6f6f; padding:3px; color:#ffffff;}
+	
+	#contact {position:absolute; z-index:1000;  left:55%;  bottom:30px; height:200px; width:45%; overflow:auto;  border-radius:5px; border:3px solid #6f6f6f;font-size: 11px; color: #ffffff;}
+	#contact h1 {font-size:15px; font-weight:600; text-align:center; border-bottom: 1px solid #6f6f6f; padding:3px; color:#ffffff;}
+	
+
+	.bg-top{background-image:url("../img/bgb_top_s.png");background-repeat: no-repeat;background-size:430px 80px;background-position-x: 15px;}
+
+	.formfont{font-size:9px;}
+	#footer{height:30px; font-size: 24px;}
+	#footer a{font-size:0.9rem;}
+}
+
+
+/*-----------------------
+  Roberts additionals   |
+-----------------------*/
+
+#bigmap {background-color: transparent !important; margin:0px; height: 90vh;}
+
+.container{margin:0px;max-width:100% !important; padding:0px;}
+
+.row{margin-left:0px; margin-right:0px; clear: both; display:block;}
+
+#info, #service {z-index: 1000; top: 85px;}
+
+.route_info{height: 80%;}
+
+@media screen and (max-width: 600px) {.container{ margin-top:15px;}
+
+@media screen and (min-width: 601px) {.container{margin-top:5px;}
+}
