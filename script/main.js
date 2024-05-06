@@ -30,7 +30,7 @@ function createMainMap(){
         extent: bhextent,
         center: bhcenter,
         minZoomm: 7,
-        maxZoom:14,
+        maxZoom:13,
         zoom:7
     });
 // Initialize main map
